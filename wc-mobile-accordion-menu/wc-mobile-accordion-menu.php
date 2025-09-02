@@ -74,7 +74,7 @@ class WCMobileAccordionMenu {
         if (empty($menu_html)) {
             if (current_user_can('edit_theme_options')) {
                 $msg = sprintf(
-                    __('Nu există niciun meniu asignat la locația „%s". Asignează unul în Appearance → Menus → Manage Locations.', 'wc-mobile-accordion-menu'),
+                    __('Nu există niciun meniu asignat la locația „%s”. Asignează unul în Appearance → Menus → Manage Locations.', 'wc-mobile-accordion-menu'),
                     self::LOCATION
                 );
                 return '<div class="' . esc_attr($container_class) . '"><p>' . esc_html($msg) . '</p></div>';
