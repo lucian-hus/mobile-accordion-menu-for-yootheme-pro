@@ -17,10 +17,12 @@
 
     var idCounter = 0;
 
-    root.querySelectorAll('li.menu-item-has-children').forEach(function (li) {
-      var link   = li.querySelector(':scope > a');
+    // Find any li element with a direct child ul (accordion behavior regardless of WordPress classes)
+    root.querySelectorAll('li').forEach(function (li) {
       var submenu = li.querySelector(':scope > ul');
-      if (!submenu) return;
+      if (!submenu) return; // Skip li elements without direct child ul
+      
+      var link = li.querySelector(':scope > a');
 
       idCounter++;
       var submenuId = 'wc-mam-submenu-' + idCounter;
