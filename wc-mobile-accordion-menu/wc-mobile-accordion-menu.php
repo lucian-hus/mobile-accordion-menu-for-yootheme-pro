@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: WC Mobile Accordion Menu
- * Description: Meniu mobil tip acordeon (până la 3 niveluri) pentru WooCommerce/YOOtheme Pro. Se gestionează manual din Appearance → Menus.
- * Version: 1.0.0
+ * Description: A mobile accordion menu for WooCommerce/YOOtheme Pro, supporting up to 3 submenu levels. Managed manually via Appearance → Menus.
+ * Version: 1.0.2
  * Author: Lucian Hus
  * License: GPL-3.0-or-later
  * Text Domain: wc-mobile-accordion-menu
@@ -11,7 +11,7 @@
 if (!defined('ABSPATH')) exit;
 
 class WCMobileAccordionMenu {
-    const VERSION  = '1.0.0';
+    const VERSION  = '1.0.2';
     const LOCATION = 'mobile_accordion_menu';
 
     public function __construct() {
@@ -50,10 +50,10 @@ class WCMobileAccordionMenu {
 
     public function shortcode($atts) {
         $atts = shortcode_atts([
-            'depth'      => 3,      // limitează la 3 niveluri
-            'class'      => '',     // clase adiționale pe container
-            'breakpoint' => '960',  // px – afișează doar sub acest prag
-            'title'      => '',     // titlu opțional deasupra meniului
+            'depth'      => 3,      // limit to 3 submenu levels
+            'class'      => '',     // additional classes for container
+            'breakpoint' => '960',  // px – only visible below this breakpoint
+            'title'      => '',     // optional title above menu
         ], $atts, 'wc_mobile_accordion_menu');
 
         $container_class = 'wc-mobile-accordion-menu';
@@ -74,7 +74,7 @@ class WCMobileAccordionMenu {
         if (empty($menu_html)) {
             if (current_user_can('edit_theme_options')) {
                 $msg = sprintf(
-                    __('Nu există niciun meniu asignat la locația „%s”. Asignează unul în Appearance → Menus → Manage Locations.', 'wc-mobile-accordion-menu'),
+                    __('No menu assigned to location “%s”. Assign one in Appearance → Menus → Manage Locations.', 'wc-mobile-accordion-menu'),
                     self::LOCATION
                 );
                 return '<div class="' . esc_attr($container_class) . '"><p>' . esc_html($msg) . '</p></div>';
