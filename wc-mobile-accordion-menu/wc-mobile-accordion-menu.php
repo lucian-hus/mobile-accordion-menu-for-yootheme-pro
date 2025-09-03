@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WC Mobile Accordion Menu
  * Description: Meniu mobil tip acordeon (până la 3 niveluri) pentru WooCommerce/YOOtheme Pro. Se gestionează manual din Appearance → Menus.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Lucian Hus
  * License: GPL-3.0-or-later
  * Text Domain: wc-mobile-accordion-menu
@@ -11,7 +11,7 @@
 if (!defined('ABSPATH')) exit;
 
 class WCMobileAccordionMenu {
-    const VERSION  = '1.0.0';
+    const VERSION  = '1.0.2';
     const LOCATION = 'mobile_accordion_menu';
 
     public function __construct() {
